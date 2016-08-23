@@ -13,7 +13,7 @@ $(function(){
 		if (tweetText.length > 140) { 
 			getQuote(); 
 		} else { 
-			var tweet = tweetLink + tweetText; 
+			var tweet = tweetLink + encodeURIComponent(tweetText);
 			$('.quote').text(input.quoteText); 
 			$('.author').text("Author: " + input.quoteAuthor); 
 			$('.tweet').attr('href', tweet); 
@@ -21,7 +21,8 @@ $(function(){
 
 	}
 	$(document).ready(function() { 
-		getQuote(); $('.trigger').click(function() { 
+		getQuote(); 
+		$('.trigger').click(function() { 
 			getQuote(); 
 		}) 
 	});
